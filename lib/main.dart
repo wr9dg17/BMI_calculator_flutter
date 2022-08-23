@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './input_page.dart';
 
 void main() {
   runApp(const BMICalculator());
@@ -9,8 +10,8 @@ class BMICalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Container(),
+    return const MaterialApp(
+      home: InputPage(),
     );
   }
 }
