@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'consts.dart';
 import 'box.dart';
 import 'gender_box.dart';
+import 'round_circle_button.dart';
 
 enum EGenre {
   male,
@@ -20,6 +21,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   EGenre? selectedGenre;
   int height = 170;
+  int weight = 60;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -103,13 +106,73 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: Box(
                     colour: kActiveCardColour,
-                    child: Container(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundCircleButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () => setState(() {
+                                weight--;
+                              }),
+                            ),
+                            const SizedBox(width: 10.0),
+                            RoundCircleButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () => setState(() {
+                                weight++;
+                              }),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
                   child: Box(
                     colour: kActiveCardColour,
-                    child: Container(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundCircleButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () => setState(() {
+                                age--;
+                              }),
+                            ),
+                            const SizedBox(width: 10.0),
+                            RoundCircleButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () => setState(() {
+                                age++;
+                              }),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
