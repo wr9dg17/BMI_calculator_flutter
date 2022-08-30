@@ -40,24 +40,27 @@ class ResultsPage extends StatelessWidget {
             flex: 5,
             child: Box(
               colour: kActiveCardColour,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    resultText.toUpperCase(),
-                    style: kResultsTextStyle,
-                  ),
-                  Text(
-                    result,
-                    style: kBMITextStyle,
-                  ),
-                  Text(
-                    resultInterpretation,
-                    textAlign: TextAlign.center,
-                    style: kBodyTextStyle,
-                  )
-                ],
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      resultText.toUpperCase(),
+                      style: kResultsTextStyle,
+                    ),
+                    Text(
+                      result,
+                      style: kBMITextStyle,
+                    ),
+                    Text(
+                      resultInterpretation,
+                      textAlign: TextAlign.center,
+                      style: kBodyTextStyle,
+                    )
+                  ],
+                ),
               ),
             ),
           ),
