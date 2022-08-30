@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'consts.dart';
-import 'box.dart';
-import 'gender_box.dart';
-import 'round_circle_button.dart';
+import '../consts.dart';
+import '../calculator.dart';
+import '../widgets/box.dart';
+import '../widgets/bottom_button.dart';
+import '../widgets/gender_box.dart';
+import '../widgets/round_circle_button.dart';
+
+import './results_page.dart';
 
 enum EGenre {
   male,
@@ -29,7 +33,6 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMI calculator'),
-        backgroundColor: const Color(0xFF0A0E21),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -178,11 +181,22 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kButtonContainerColour,
-            margin: const EdgeInsets.only(top: 15.0),
-            width: double.infinity,
-            height: kButtonContainerHeight,
+          BottomButton(
+            title: 'CALCULATE',
+            onTap: () {
+              Calculator calc = Calculator(height: height, weight: weight);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                    result: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    resultInterpretation: calc.getInterpretation(),
+                  ),
+                ),
+              );
+            },
           )
         ],
       ),

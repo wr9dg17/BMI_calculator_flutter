@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'box.dart';
-import 'consts.dart';
+import '../consts.dart';
 
 class GenderBox extends StatelessWidget {
   final IconData icon;
